@@ -12,17 +12,20 @@ You can run the script in your Terminal at any time using the command:
 def add_to_list(my_list):
     """Takes user input and adds it as a new item to the end of the list."""
 
-    print "The add_to_list function has not yet been written"
-
-
+    item = raw_input("Add a new item: ")
+    my_list.append(item)
+    return my_list
+    
+    
 def view_list(my_list):
     """Print each item in the list."""
-
-    print "The view_list function has not yet been written"
-
-
-def display_main_menu(my_list):
+    for todo in my_list:
+        print todo
+    
+    
+def ask_for_input(my_list):
     """Displays main options, takes in user input, and calls view or add function."""
+
 
     user_options = """
     \nWould you like to:
@@ -30,13 +33,23 @@ def display_main_menu(my_list):
     B. View list
     C. Quit the program
     >>> """
-
+        
     while True:
-        # Collect input and include your if/elif/else statements here.
-        break
+    
+        print user_options  
+    
+        user_input = raw_input()
+        if user_input == 'A':
+            add_to_list(my_list)
+        elif user_input == 'B':
+            view_list(my_list)
+        elif user_input == 'C':
+            break
+        else: 
+            print user_options
 
 #-------------------------------------------------
 
 my_list = []
-display_main_menu(my_list)
+ask_for_input(my_list)
 
